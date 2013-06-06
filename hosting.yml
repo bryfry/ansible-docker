@@ -1,0 +1,5 @@
+---
+# file: hosting.yml
+- hosts: hosting
+  roles:
+    - hosting

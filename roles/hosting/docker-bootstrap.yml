@@ -1,0 +1,11 @@
+---
+# install dependencies needed to run the binary docker lxc engine (http://www.docker.io/)
+- hosts: local
+  user: xenny
+  tasks:
+  - name: Install lxc
+    action: apt pkg=lxc state=latest
+  - name: Install bsdtar
+    action: apt pkg=bsdtar state=latest
+  - name: Update Kernel to 3.8
+    action: apt pkg=linux-image-generic-lts-raring

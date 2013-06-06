@@ -1,0 +1,36 @@
+[x-hosting]
+ipa
+ipb
+
+[y-hosting]
+ipc
+ipd
+
+[x-vms]
+ipe
+ipf
+ipg
+
+[y-vms]
+iph
+ipi
+
+# all hosting
+[hosting:children]
+x-hosting
+y-hosting
+
+# all vms
+[vms:children]
+x-vms
+y-vms
+
+# all x
+[x:children]
+x-hosting
+x-vms
+
+# all y
+[y:children]
+y-hosting
+y-vms
