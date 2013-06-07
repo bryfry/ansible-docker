@@ -1,5 +1,8 @@
 ---
 # file: hosting.yml
 - hosts: hosting
+  vars_files:
+    - group_vars/hosting.yml
   roles:
     - hosting
+

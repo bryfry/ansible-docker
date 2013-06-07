@@ -1,11 +1,2 @@
 ---
-# install dependencies needed to run the binary docker lxc engine (http://www.docker.io/)
-- name: Install lxc
-  action: apt pkg=lxc state=latest
-  tags: bootstrap
-- name: Install bsdtar
-  action: apt pkg=bsdtar state=latest
-  tags: bootstrap
-- name: Update Kernel to 3.8
-  action: apt pkg=linux-image-generic-lts-raring
-  tags: bootstrap
+- include: docker-bootstrap.yml
