@@ -1,0 +1,29 @@
+[local-hosting]
+127.0.0.1
+
+[local-dockers]
+
+[aws-hosting]
+
+[aws-dockers]
+
+# all hosting
+[hosting:children]
+local-hosting
+aws-hosting
+
+# all dockers
+[dockers:children]
+local-dockers
+aws-dockers
+
+# all local
+[local:children]
+local-hosting
+local-dockers
+
+# all aws
+[aws:children]
+aws-hosting
+aws-dockers
+

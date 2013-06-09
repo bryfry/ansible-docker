@@ -1,0 +1,31 @@
+---
+# install dependencies needed to build/run the docker lxc engine (http://www.docker.io/)
+
+- name: Install lxc
+  apt: pkg=lxc state=latest
+
+- name: Install bsdtar
+  apt: pkg=bsdtar state=latest
+
+- name: Install golang
+  apt: pkg=golang state=latest
+
+- name: Install curl
+  apt: pkg=curl state=latest
+
+- name: Install git
+  apt: pkg=git state=latest
+
+- name: Install wget
+  apt: pkg=wget state=latest
+
+- name: Update Kernel to 3.8
+  apt: pkg=linux-image-generic-lts-raring
+
+# TODO: improve granularity of this checking, i.e. version number, cloning only if absent
+- name: Clone and compile docker
+  git: repo={{docker_git_url}} dest=/tmp/docker/
+- shell: cd /tmp/docker && make && cp ./bin/docker /usr/local/bin/docker
+- debug: msg="docker installed at:{{item}}"
+  with_lines:
+    - which docker  

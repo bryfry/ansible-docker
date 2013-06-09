@@ -1,0 +1,3 @@
+---
+# docker hosting specific variables
+docker_git_url: git://github.com/dotcloud/docker.git
