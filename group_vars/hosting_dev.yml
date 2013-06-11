@@ -1,0 +1,10 @@
+# vars specifically for building a development enviroment for docker
+docker_git_url: git://github.com/dotcloud/docker.git
+docker_dev_deps:
+  - lxc
+  - bsdtar
+  - golang
+  - curl
+  - git
+  - wget
+  - build-essential

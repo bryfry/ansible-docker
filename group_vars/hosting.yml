@@ -1,3 +1,6 @@
 ---
 # docker hosting specific variables
-docker_git_url: git://github.com/dotcloud/docker.git
+docker_deps:
+    - python-software-properties
+    - linux-image-3.8.0-19-generic
+    #- linux-image-generic-lts-raring
