@@ -1,16 +1,16 @@
 ---
 # Install the required kernel for docker
 
-- name: Install suggested kernel
-  tag: dep,ppa,bin
-  apt: package={{ linux_kernel }} # defined in group_vars/hosting.yml
+- name: Install linux-image-{{ linux_kernel }} # defined in group_vars/hosting.yml
+  tags: dep,ppa,bin
+  apt: package=linux-image{{ linux_kernel }} update_cache=yes
 
 - name: Install wget
-  tag: vbox
+  tags: vbox
   apt: package=wget state=latest
 
 - name: wget iso
-  tag: vbox
+  tags: vbox
   action: wget -q {{ vbox_additions_iso }}
 
 

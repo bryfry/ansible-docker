@@ -8,3 +8,4 @@ docker_dev_deps:
   - git
   - wget
   - build-essential
+  - linux-headers-{{ linux_kernel }}

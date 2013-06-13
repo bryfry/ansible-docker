@@ -3,6 +3,6 @@
 docker_deps:
   - python-software-properties
 
-linux_kernel: linux-image-3.8.0-19-generic
+linux_kernel: 3.8.0-19-generic
 vbox_additions_iso: http://dlc.sun.com.edgesuite.net/virtualbox/4.2.12/VBoxGuestAdditions_4.2.12.iso
 

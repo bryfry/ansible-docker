@@ -7,7 +7,7 @@
 - name: Enable ppa adding via apt-add-repository is available
   tags: ppa,dev
   apt: pkg={{ item }} state=latest
-  with_items: {{ docker_deps }} # defined in groupvars/hosting.yml
+  with_items: docker_deps # defined in groupvars/hosting.yml
   
 - name: Add docker ppa
   tags: ppa
