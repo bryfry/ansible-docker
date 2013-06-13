@@ -1,2 +1,3 @@
 ---
-- include: docker-bootstrap.yml
+- include: kernel-tasks.yml
+- include: build-tasks.yml

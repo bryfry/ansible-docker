@@ -2,7 +2,6 @@
 # install dependencies needed to build/run the docker lxc engine (http://www.docker.io/)
 # Basically a reworking of docker's Vagrentfile[1] into an ansible-playbook
 # [1] https://github.com/dotcloud/docker/blob/master/Vagrantfile
-
  
 ### PPA install ###
 - name: Enable ppa adding via apt-add-repository is available
