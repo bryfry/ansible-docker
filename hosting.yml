@@ -1,9 +1,0 @@
----
-# file: hosting.yml
-- hosts: hosting
-  vars_files:
-    - group_vars/hosting.yml
-    - group_vars/hosting_dev.yml
-  roles:
-    - hosting
-

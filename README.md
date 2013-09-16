@@ -1,12 +1,14 @@
 #ansible-docker
 
-ansible playbook for provisioning docker lxc containers
+ansible playbook for setting up docker
 
-##hosting.yml
+##docker.yml
 setup a lxc host with the required dependencies
+
+example run:```ansible-playbook -i inventory docker.yml --tags repo```
 
 **tags**
 
-* **dev** - setup for development environment, compile docker, etc.
-* **ppa** - install docker from the ubuntu ppa
+* **repo** - setup for development environment, compile docker, etc.
 * **bin** - install docker from the docker-latest binary [not yet implemented]
+* **vbox** - if inside vbox, re-install VBox Guest Additions [not yet implemented]

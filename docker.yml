@@ -1,0 +1,44 @@
+---
+- hosts: hosting
+  vars:
+    docker_deps:
+      - python-software-properties
+      - python-apt
+      - python-pycurl
+      - wget
+    linux_kernel: 3.8.0-29-generic
+    vbox_additions_iso: http://dlc.sun.com.edgesuite.net/virtualbox/4.2.12/VBoxGuestAdditions_4.2.12.iso
+  tasks:
+    # install dependencies needed to run the docker lxc engine (http://www.docker.io/)
+    # Basically a reworking of docker's Vagrentfile[1] into an ansible-playbook
+    # [1] https://github.com/dotcloud/docker/blob/master/Vagrantfile
+
+    - name: Install linux-image-{{ linux_kernel }} # defined in group_vars/hosting.yml
+      apt: package=linux-image-{{ linux_kernel }} update_cache=yes
+      sudo: yes
+      tags: repo
+
+    - name: Pre-repo add dependencies
+      apt: pkg={{ item }} state=latest
+      with_items: docker_deps # defined in groupvars/hosting.yml
+      sudo: yes
+      tags: repo 
+
+    - name: wget VBox Additions iso for fixing after kernel update
+      action: wget -q {{ vbox_additions_iso }}
+      tags: vbox
+
+    - name: Add docker repository key
+      apt_key: url=https://get.docker.io/gpg state=present
+      sudo: yes
+      tags: repo
+     
+    - name: Add docker repository
+      apt_repository: repo='deb http://get.docker.io/ubuntu docker main' state=present
+      sudo: yes
+      tags: repo
+
+    - name: Install docker
+      apt: pkg=lxc-docker state=latest update_cache=yes
+      sudo: yes
+      tags: repo
