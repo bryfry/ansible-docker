@@ -1,5 +1,0 @@
-[local-hosting]
-127.0.0.1
-
-[hosting:children]
-local-hosting

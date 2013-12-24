@@ -1,14 +1,13 @@
 #ansible-docker
-
 ansible playbook for setting up docker
 
 ##docker.yml
-setup a lxc host with the required dependencies
+setup a lxc-docker host with the required dependencies
 
-example run: ```ansible-playbook -i inventory docker.yml --tags repo```
+example run: ```ansible-playbook docker.yml```
 
-**tags**
+make sure to add a docker_host item to your inventory (hosts) file
 
-* **repo** - install docker from the docker deb repository
-* **bin** - install docker from the docker-latest binary [not yet implemented]
-* **vbox** - for use with vbox host, re-install VBox Guest Additions [not yet implemented]
+###things not implemented
+* install docker from the docker-latest binary instead of repos
+* re-install VBox Guest Additions if on virtualbox and kernel updated
