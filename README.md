@@ -9,14 +9,16 @@ ansible playbook for setting up lxc-docker and required dependencies
 * restarts target if needed
 
 
-**run**:  ```ansible-playbook docker.yml```
+**Run**:  ```ansible-playbook docker.yml```
 
-**non-AUFS run**: ```ansible-playbook docker.yml --extra-vars "docker_update_kernel=false"```
+**Non-AUFS run**: ```ansible-playbook docker.yml --extra-vars "docker_update_kernel=false"```
 
-**note**: expects ```docker_host``` item to your inventory (hosts) file:
+**Note**: expects ```docker_host``` item to your inventory (hosts) file:
 
 
-###things not implemented
-* yum, including OS detection (please fork and add if you are interested)
+###Things not implemented
+Please fork and add if you are interested
+
+* yum, including OS detection 
 * install docker from the docker-latest binary instead of repos
 * re-install VBox Guest Additions if on virtualbox and kernel updated
