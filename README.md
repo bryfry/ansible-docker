@@ -6,7 +6,7 @@ ansible playbook for setting up lxc-docker and required dependencies
 * adds docker repo
 * install lxc-docker
 * adds user to docker group
-* restarts target if needed (kernel update)
+* restarts target if needed
 
 
 **run**:  ```ansible-playbook docker.yml```
